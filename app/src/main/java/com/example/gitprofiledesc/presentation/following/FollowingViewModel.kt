@@ -6,8 +6,8 @@ import com.example.gitprofiledesc.domain.following.GetFollowingUseCase
 
 class FollowingViewModel(private var getFollowingUseCase: GetFollowingUseCase): ViewModel() {
 
-    fun provideFollowingList()= liveData {
-      var followinglist =   getFollowingUseCase.getFollowing()
+    fun provideFollowingList(userName:String)= liveData {
+      var followinglist =   getFollowingUseCase.getFollowing(userName)
         emit(followinglist)
     }
 }

@@ -10,8 +10,8 @@ import retrofit2.http.Path
 interface ApiService {
     @GET("users/{username}")
     suspend fun getProfile(@Path("username") username:String): Response<ProfileData>
-    @GET("users/JakeWharton/followers")
-    suspend fun getFollowers(): Response<ArrayList<FollowersModelItem>>
-    @GET("users/JakeWharton/following")
-    suspend fun getFollowing(): Response<ArrayList<FollowingModelItem>>
+    @GET("users/{username}/followers")
+    suspend fun getFollowers(@Path("username") username:String): Response<ArrayList<FollowersModelItem>>
+    @GET("users/{username}/following")
+    suspend fun getFollowing(@Path("username") username:String): Response<ArrayList<FollowingModelItem>>
 }

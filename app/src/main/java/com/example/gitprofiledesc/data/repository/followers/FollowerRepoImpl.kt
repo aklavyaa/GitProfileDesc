@@ -5,13 +5,13 @@ import com.example.gitprofiledesc.data.repository.followers.dataSource.Followers
 import com.example.gitprofiledesc.domain.followers.FollowerRepo
 
 class FollowerRepoImpl(private var followersRemoteRepo: FollowersRemoteRepo): FollowerRepo {
-    override suspend fun provideFollowersList(): ArrayList<FollowersModelItem> {
-        return getFollowers()
+    override suspend fun provideFollowersList(userName:String): ArrayList<FollowersModelItem> {
+        return getFollowers(userName)
     }
 
-    suspend fun getFollowers(): ArrayList<FollowersModelItem> {
+    suspend fun getFollowers(userName: String): ArrayList<FollowersModelItem> {
         var followersList = ArrayList<FollowersModelItem>()
-       var response =  followersRemoteRepo.getRemoteFollowers()
+       var response =  followersRemoteRepo.getRemoteFollowers(userName)
        if (response!= null){
           followersList = response.body()!!
        }

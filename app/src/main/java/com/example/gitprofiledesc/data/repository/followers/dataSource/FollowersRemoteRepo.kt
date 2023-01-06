@@ -4,7 +4,7 @@ import com.example.gitprofiledesc.data.model.followers.FollowersModelItem
 import retrofit2.Response
 
 interface FollowersRemoteRepo {
-    suspend fun getRemoteFollowers():Response<ArrayList<FollowersModelItem>>?
+    suspend fun getRemoteFollowers(userName:String):Response<ArrayList<FollowersModelItem>>?
 
 
 

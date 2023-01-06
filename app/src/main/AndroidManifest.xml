@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name="com.example.gitprofiledesc.presentation.di.App"
+        android:name=".presentation.di.App"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -17,20 +17,32 @@
         android:theme="@style/Theme.TestMvvmClean"
         tools:targetApi="31">
         <activity
-            android:name="com.example.gitprofiledesc.presentation.following.FollowingActivity"
-            android:exported="false" />
-        <activity
-            android:name="com.example.gitprofiledesc.presentation.followers.FollowerActivity"
-            android:exported="false" />
-        <activity
-            android:name="com.example.gitprofiledesc.presentation.profile.ProfileActitvity"
+            android:name=".MainActivity"
             android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+<!--        <activity-->
+<!--            android:name=".presentation.following.FollowingActivity"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".presentation.followers.FollowerActivity"-->
+<!--            android:exported="false" />-->
+<!--        <activity-->
+<!--            android:name=".presentation.profile.ProfileActitvity"-->
+<!--            android:exported="true">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
     </application>
 
 </manifest>

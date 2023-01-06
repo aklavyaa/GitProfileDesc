@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.gitprofiledesc.data.model.ProfileData
 import com.example.gitprofiledesc.domain.profile.ProfileDetailUseCase
 import com.example.gitprofiledesc.domain.profile.ProfileUpdateDetailUseCase
+import com.example.gitprofiledesc.utils.AppUtils
 import com.example.gitprofiledesc.utils.NetworkResponse
 import kotlinx.coroutines.launch
 
@@ -39,11 +40,26 @@ class ProfileViewModel(
 
         }
 
-        fun updateProfile() = liveData {
-           val updateProfileData = updateDetailUseCase.execute()
-            emit(updateProfileData)
+    fun updateProfile(username:String)  {
+
+        AppUtils.userName = username
+
+        viewModelScope.launch{
+            val response =  updateDetailUseCase.execute(username)
+            when (response){
+                is NetworkResponse.NetworkResult.Success -> successResult.value = response.data
+                is NetworkResponse.NetworkResult.Error -> errorResult.value = response.message.toString()
+                is NetworkResponse.NetworkResult.Exception -> errorResult.value = response.e.message
+            }
         }
 
+    }
+
+//        fun updateProfile() = liveData {
+//           val updateProfileData = updateDetailUseCase.execute()
+//            emit(updateProfileData)
+//        }
+//
 
 
 

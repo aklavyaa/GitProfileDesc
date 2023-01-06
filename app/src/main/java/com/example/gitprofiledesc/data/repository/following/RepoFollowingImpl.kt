@@ -5,14 +5,14 @@ import com.example.gitprofiledesc.data.repository.following.dataSource.RemoteRep
 import com.example.gitprofiledesc.domain.following.RepoFollowing
 
 class RepoFollowingImpl(private var remoteRepoFollowing: RemoteRepoFollowing):RepoFollowing {
-    override suspend fun getRepoFollowing(): ArrayList<FollowingModelItem> {
-        return getFollowing()
+    override suspend fun getRepoFollowing(userName:String): ArrayList<FollowingModelItem> {
+        return getFollowing(userName)
     }
 
 
-    suspend fun getFollowing():ArrayList<FollowingModelItem>{
+    suspend fun getFollowing(userName:String):ArrayList<FollowingModelItem>{
       var followingList = ArrayList<FollowingModelItem>()
-       var respoonse =  remoteRepoFollowing.getRemoteRepoFollowing()
+       var respoonse =  remoteRepoFollowing.getRemoteRepoFollowing(userName)
         if (respoonse.isSuccessful){
             followingList = respoonse.body()!!
         }

@@ -22,7 +22,7 @@ class ProfileRepoImpl(
         return getDataFromCache()
     }
 
-    override suspend fun updateProfileDetail(): NetworkResponse.NetworkResult<ProfileData> {
+    override suspend fun updateProfileDetail(username:String): NetworkResponse.NetworkResult<ProfileData> {
         var newProfileData = getDataFromRemote(username)
         when (newProfileData){
             is NetworkResponse.NetworkResult.Success ->{

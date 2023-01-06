@@ -5,10 +5,8 @@ import androidx.lifecycle.liveData
 import com.example.gitprofiledesc.domain.followers.GetFollowersUseCase
 
 class FollowerViewModel(private var followersUseCase: GetFollowersUseCase) :ViewModel(){
-
-
-    fun getFollowers() = liveData {
-      var response =  followersUseCase.execute()
+    fun getFollowers(userName:String) = liveData {
+      var response =  followersUseCase.execute(userName)
         emit(response)
     }
 

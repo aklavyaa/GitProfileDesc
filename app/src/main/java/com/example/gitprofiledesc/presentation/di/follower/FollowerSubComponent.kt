@@ -1,6 +1,6 @@
 package com.example.gitprofiledesc.presentation.di.follower
 
-import com.example.gitprofiledesc.presentation.followers.FollowerActivity
+import com.example.gitprofiledesc.FollowersScreen
 import dagger.Subcomponent
 
 @FollowerScope
@@ -8,7 +8,7 @@ import dagger.Subcomponent
     modules = [FollowerModule::class]
 )
 interface FollowerSubComponent {
-    fun inject(activity: FollowerActivity)
+    fun inject(activity: FollowersScreen)
 
     @Subcomponent.Factory
     interface Factory{

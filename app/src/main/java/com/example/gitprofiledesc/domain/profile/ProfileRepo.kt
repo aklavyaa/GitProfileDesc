@@ -6,5 +6,5 @@ import com.example.gitprofiledesc.utils.NetworkResponse
 interface ProfileRepo {
 
     suspend fun getProfileDetail(userName:String): NetworkResponse.NetworkResult<ProfileData>
-    suspend fun updateProfileDetail():NetworkResponse.NetworkResult<ProfileData>
+    suspend fun updateProfileDetail(userName:String):NetworkResponse.NetworkResult<ProfileData>
 }

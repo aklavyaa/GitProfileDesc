@@ -6,7 +6,11 @@ import com.example.gitprofiledesc.data.repository.following.dataSource.RemoteRep
 import retrofit2.Response
 
 class RemoteRepoFollowingImpl(private var apiService: ApiService) : RemoteRepoFollowing{
-    override suspend fun getRemoteRepoFollowing(): Response<ArrayList<FollowingModelItem>> {
-       return apiService.getFollowing()
+    override suspend fun getRemoteRepoFollowing(userName:String): Response<ArrayList<FollowingModelItem>> {
+       return apiService.getFollowing(userName)
     }
+
+//    override suspend fun getRemoteRepoFollowing(): Response<ArrayList<FollowingModelItem>> {
+//        return apiService.getFollowing()
+//    }
 }

@@ -4,5 +4,5 @@ import com.example.gitprofiledesc.data.model.following.FollowingModelItem
 import retrofit2.Response
 
 interface RemoteRepoFollowing {
-    suspend fun getRemoteRepoFollowing():Response<ArrayList<FollowingModelItem>>
+    suspend fun getRemoteRepoFollowing(userName:String):Response<ArrayList<FollowingModelItem>>
 }

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainScreen">
+
+    <fragment
+        android:id="@+id/mainScreen"
+        android:name="com.example.gitprofiledesc.MainScreen"
+        android:label="fragment_main_screen"
+        tools:layout="@layout/fragment_main_screen" >
+        <action
+            android:id="@+id/action_mainScreen_to_followingScreen"
+            app:destination="@id/followingScreen" />
+        <action
+            android:id="@+id/action_mainScreen_to_followersScreen"
+            app:destination="@id/followersScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/followersScreen"
+        android:name="com.example.gitprofiledesc.FollowersScreen"
+        android:label="fragment_followers_screen"
+        tools:layout="@layout/fragment_followers_screen" />
+    <fragment
+        android:id="@+id/followingScreen"
+        android:name="com.example.gitprofiledesc.FollowingScreen"
+        android:label="fragment_following_screen"
+        tools:layout="@layout/fragment_following_screen" />
+</navigation>
